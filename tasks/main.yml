@@ -1,0 +1,6 @@
+---
+
+- include: dot-env.yml
+
+- include: dot-env-example.yml
+  when: dot_env_example_file_enable == True

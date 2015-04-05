@@ -1,0 +1,19 @@
+---
+
+dot_env_file_create: true
+dot_env_file_purge: false
+dot_env_file_path: /tmp/.env
+
+dot_env_example_file_enable: true
+dot_env_example_file_create: true
+dot_env_example_file_purge: "{{ dot_env_file_purge }}"
+dot_env_example_file_path: "{{ dot_env_file_path }}.example"
+
+dot_env_file_add_banner: true
+dot_env_file_banner_message: " Automatically managed - take care if editing this file directly to ensure changes are preserved. \n"
+
+dot_env_example_file_add_banner: true
+dot_env_example_file_banner_message: "{{ dot_env_file_banner_message }}"
+
+dot_env_key_value_separator: "="
+dot_env_key_value_items: []

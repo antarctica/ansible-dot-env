@@ -1,0 +1,18 @@
+---
+
+- name: purging current environment file to ensure clean slate
+  file: path="{{ dot_env_file_path }}" state=absent
+  when: dot_env_file_purge == True
+
+- name: determine if environment file exists
+  stat: path="{{ dot_env_file_path }}"
+  register: dot_env_fact_file_exists
+  changed_when: False
+
+- name: ensure environment file is populated with key = values
+  lineinfile: dest="{{ dot_env_file_path }}" line="{{ item.key }}{{ dot_env_key_value_separator }}{{ item.value }}" insertafter="EOF" create="{{ dot_env_file_create }}" state=present
+  with_items: "{{ dot_env_key_value_items }}"
+
+- name: add banner message if environment file was purged or newly created
+  lineinfile: dest="{{ dot_env_file_path }}" line="#{{ dot_env_file_banner_message }}" insertbefore="BOF" state=present
+  when: dot_env_fact_file_exists.stat.exists == False and dot_env_file_add_banner == True

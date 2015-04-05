@@ -1,0 +1,18 @@
+---
+
+- name: purging current example environment file to ensure clean slate
+  file: path="{{ dot_env_example_file_path }}" state=absent
+  when: dot_env_example_file_purge == True
+
+- name: determine if example environment file exists
+  stat: path="{{ dot_env_example_file_path }}"
+  register: dot_env_fact_example_file_exists
+  changed_when: False
+
+- name: ensure example environment file is populated with key = examples
+  lineinfile: dest="{{ dot_env_example_file_path }}" line="{{ item.key }}{{ dot_env_key_value_separator }}{{ item.example }}" insertafter="EOF" create="{{ dot_env_example_file_create }}" state=present
+  with_items: "{{ dot_env_key_value_items }}"
+
+- name: add banner message if example environment file was purged or newly created 
+  lineinfile: dest="{{ dot_env_example_file_path }}" line="#{{ dot_env_example_file_banner_message }}" insertbefore="BOF" state=present
+  when: dot_env_fact_example_file_exists.stat.exists == False and dot_env_example_file_add_banner == True
