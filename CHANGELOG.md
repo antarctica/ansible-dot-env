@@ -8,6 +8,8 @@ This role adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ## [0.1.1] - 2015-04-05
 
 ### Changed
+* README: Improving role description and role features.
+* Meta-File: Improving role description.
 * CHANGELOG: Updated structure to comply with [keepachangelog](http://keepachangelog.com/).
 
 ## [0.1.0] - 2015-04-05

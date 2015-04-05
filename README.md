@@ -2,13 +2,13 @@
 
 **Part of the BAS Ansible Role Collection (BARC)**
 
-Creates or modifies key-value environment file
+Creates or updates a key-value environment and example environment file
 
 ## Overview
 
-* An environment variable file will be created or modified to contain a collection of keys/values
-* By default an example environment variable will also be created or modified to contain a collection of keys/example-values
-* By default a banner message will be added to newly created environment or example environment variable files
+* An environment variable file will be created or updated to contain a collection of keys/values
+* An example environment variable can be created or updated to contain a collection of keys/example-values, this is enabled by default
+* A banner message can be added to newly created environment or example environment variable files, this is enabled by default
 
 ## Availability
 

@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  description: Creates or modifies key-value environment file
+  description: Creates or updates a key-value environment and example environment file
   author: British Antarctic Survey - Web and Applications Team
   company: British Antarctic Survey
   license: MIT
